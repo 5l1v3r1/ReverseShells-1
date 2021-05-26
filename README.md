@@ -6,5 +6,4 @@ Créez un bot Discord, ajoutez-le à un serveur privé, et copiez son token. Ens
 
 # Tutoriel avancé
 J'ai également fais un tutoriel sur l'utilisation du programme sur YouTube. 
-Allez le voir si vous voulez plus d'explications, ou rejoignez mon serveur Discord ;)
-https://discord.gg/dm5zcNjWsE
+Allez le voir si vous voulez plus d'explications, ou rejoignez mon serveur Discord : https://discord.gg/dm5zcNjWsE
