@@ -33,7 +33,7 @@ async def on_ready():
         for channel in guild.channels:
             if channel.id == salon_id:
                 try:
-                    channel.send("Je suis là!")
+                    await channel.send("Niqué xD")
                 except:
                     pass
                 return
