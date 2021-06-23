@@ -9,10 +9,5 @@ Il est important d'activer ceci:
 
 Sinon le bot ne se mettra pas en ligne.
 
-
-# Tutoriel avancé
-J'ai également fais un tutoriel sur l'utilisation du programme sur YouTube. 
-Allez le voir si vous voulez plus d'explications, ou rejoignez mon serveur Discord : https://discord.gg/dm5zcNjWsE
-
 # Disclaimer
 JE NE SUIS PAS RESPONSABLE DE VOS ACTIONS AVEC MON TOOL, VEUILLEZ L'UTILISER UNIQUEMENT À DES FINS ÉDUCATIVES
